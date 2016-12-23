@@ -1,0 +1,24 @@
+{
+  "name": "mjtheone/simple_maintenance",
+  "type": "symfony-bundle",
+  "description": "A simple maintenance bundle",
+  "homepage": "https://github.com/MJTheOne/SimpleMaintenance",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Marius Posthumus",
+      "email": "marius@mariusposthumus.nl",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "symfony/framework-bundle": "2.*"
+  },
+  "require-dev": {},
+  "autoload": {
+    "psr-0": {
+      "CreativeICT\\Bundle\\SimpleMaintenance\\": ""
+    }
+  }
+}
