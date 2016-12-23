@@ -6,19 +6,19 @@
  * Time: 22:37
  */
 
-namespace MJTheOne\Bundle\MaintenanceBundle\Command;
+namespace CoderGeek\Bundle\MaintenanceBundle\Command;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
-class LockCommand
+class LockCommand extends ContainerAwareCommand
 {
     protected function configure()
     {
         $this
-            ->setName('mjtheone:maintenance:lock')
+            ->setName('maintenance:lock')
             ->setDescription('Set the application in maintenance mode')
 //            ->addArgument()
             ->setHelp(<<<EOT
@@ -37,6 +37,8 @@ EOT
                 return;
             }
         }
+
+        // lock it up
 
         $output->writeln('<info>Locked!</info>');
     }

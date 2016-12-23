@@ -6,11 +6,11 @@
  * Time: 21:39
  */
 
-namespace MJTheOne\Bundle\MaintenanceBundle;
+namespace CoderGeek\Bundle\MaintenanceBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle as BaseBundle;
 
-class MJTheOneMaintenanceBundle extends BaseBundle
+class CoderGeekMaintenanceBundle extends BaseBundle
 {
     /**
      * {@inheritdoc}
