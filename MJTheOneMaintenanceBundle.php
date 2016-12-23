@@ -6,11 +6,11 @@
  * Time: 21:39
  */
 
-namespace CreativeICT\Bundle\SimpleMaintenance;
+namespace MJTheOne\Bundle\MaintenanceBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle as BaseBundle;
 
-class CictMaintenanceBundle extends BaseBundle
+class MJTheOneMaintenanceBundle extends BaseBundle
 {
     /**
      * {@inheritdoc}
