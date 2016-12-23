@@ -1,5 +1,5 @@
 {
-  "name": "mjtheone/simple_maintenance",
+  "name": "mjtheone/maintenance-bundle",
   "type": "symfony-bundle",
   "description": "A simple maintenance bundle",
   "homepage": "https://github.com/MJTheOne/SimpleMaintenance",
@@ -17,8 +17,8 @@
   },
   "require-dev": {},
   "autoload": {
-    "psr-0": {
-      "CreativeICT\\Bundle\\SimpleMaintenance\\": ""
+    "psr-4": {
+      "MJTheOne\\Bundle\\MaintenanceBundle\\": ""
     }
   }
 }
