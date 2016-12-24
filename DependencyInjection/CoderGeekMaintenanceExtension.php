@@ -23,7 +23,6 @@ class CoderGeekMaintenanceExtension extends Extension
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
-        $container->setParameter('codergeek_maintenance.whitelist.host', $config['whitelist']['host']);
         $container->setParameter('codergeek_maintenance.whitelist.ips', $config['whitelist']['ips']);
         $container->setParameter('codergeek_maintenance.whitelist.route', $config['whitelist']['route']);
         $container->setParameter('codergeek_maintenance.whitelist.attributes', $config['whitelist']['attributes']);
