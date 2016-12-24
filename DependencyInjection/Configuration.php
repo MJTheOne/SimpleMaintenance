@@ -46,7 +46,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('response')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->intergerNode('code')
+                        ->integerNode('code')
                             ->defaultValue(302)
                         ->end()
                         ->scalarNode('status')
