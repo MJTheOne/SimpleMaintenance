@@ -39,7 +39,7 @@ class Configuration implements ConfigurationInterface
                             ->defaultValue('\CoderGeek\Bundle\MaintenanceBundle\Drivers\FileDriver')
                         ->end()
                         ->variableNode('options')
-                            ->defaultValue(['filePath' => "%kernel.root_dir%"])
+                            ->defaultValue(['filePath' => "%kernel.root_dir%/lock"])
                         ->end()
                     ->end()
                 ->end()
