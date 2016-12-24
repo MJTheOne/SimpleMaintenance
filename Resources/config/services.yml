@@ -1,0 +1,17 @@
+services:
+    codergeek_maintenance.driver.factory:
+        class: %CoderGeek\Bundle\MaintenanceBundle\Drivers\DriverFactory%
+        arguments: ['%codergeek_maintenance.driver%']
+    codergeek_maintenance.listener:
+        class: %CoderGeek\Bundle\MaintenanceBundle\Listener\MaintenanceListener%
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+        arguments: [
+          '@codergeek_maintenance.driver.factory',
+          '%codergeek_maintenance.whitelist.ips%',
+          '%codergeek_maintenance.whitelist.route%',
+          '%codergeek_maintenance.response.http_code%',
+          '%codergeek_maintenance.response.http_status%',
+          '%kernel.debug%'
+        ]

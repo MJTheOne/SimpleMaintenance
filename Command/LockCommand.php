@@ -8,6 +8,8 @@
 
 namespace CoderGeek\Bundle\MaintenanceBundle\Command;
 
+use CoderGeek\Bundle\MaintenanceBundle\Drivers\DriverFactory;
+use CoderGeek\Bundle\MaintenanceBundle\Drivers\FileDriver;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -31,6 +33,7 @@ EOT
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $driver = $this->getDriver();
         if ($input->isInteractive()) {
             if (!$this->askConfirmation('WARNING! Are you sure you wish to lock the application? (y/n)', $input, $output)) {
                 $output->writeln('<error>Maintenance cancelled</error>');
@@ -39,8 +42,21 @@ EOT
         }
 
         // lock it up
+        $driver->lock();
 
         $output->writeln('<info>Locked!</info>');
+    }
+
+    /**
+     * @return FileDriver
+     * @throws \ErrorException
+     */
+    protected function getDriver()
+    {
+        /** @var DriverFactory $driverFactory */
+        $driverFactory = $this->getContainer()->get('codergeek_maintenance.driver.factory');
+
+        return $driverFactory->getDriver();
     }
 
     /**
