@@ -25,7 +25,6 @@ class CoderGeekMaintenanceExtension extends Extension
 
         $container->setParameter('codergeek_maintenance.whitelist.ips', $config['whitelist']['ips']);
         $container->setParameter('codergeek_maintenance.whitelist.route', $config['whitelist']['route']);
-        $container->setParameter('codergeek_maintenance.whitelist.attributes', $config['whitelist']['attributes']);
         $container->setParameter('codergeek_maintenance.response.http_code', $config['response']['code']);
         $container->setParameter('codergeek_maintenance.response.http_status', $config['response']['status']);
 
