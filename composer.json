@@ -17,7 +17,7 @@
   },
   "autoload": {
     "psr-4": {
-      "CoderGeek\\Bundle\\MaintenanceBundle\\": "src"
+      "CoderGeek\\Bundle\\MaintenanceBundle\\": ""
     }
   }
 }
