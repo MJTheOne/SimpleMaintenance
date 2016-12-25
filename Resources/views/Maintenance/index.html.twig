@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <style>
+            #page {
+                background-size: cover;
+                background: url({{ asset('img/construction-work-carpenter-tools.jpg') }}) 50% 50% no-repeat;
+            }
+            .tableCell {
+                height: 100%;
+                width: 100%;
+                display: table-cell;
+                position: relative;
+                vertical-align: middle;
+            }
+            #page h1 {
+                font-family: "Raleway", sans-serif;
+                text-transform: uppercase;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                font-weight: 800;
+                line-height: 1.3;
+                color: #fff;
+            }
+            .hUnder {
+                border-bottom: 18px solid #00ffcc;
+                display: inline-block;
+                line-height: 1.2;
+                margin-bottom: 40px;
+            }
+            .addressContainer {
+                background: rgba(0, 255, 204, 0.6);
+            }
+            .addressBlock {
+                display: table-cell;
+                float: none;
+                width: 50%;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page">
+            <div class="tableCell">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <h1><span class="hUnder">M</span>AINTENANCE!!</h1>
+                        </div>
+                    </div>
+                    <div class="addressContainer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="addressBlock col-sm6 col-xs-12">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Testing test 123... echoing param: {{ param }}</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
