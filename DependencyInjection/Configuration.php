@@ -25,7 +25,7 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->scalarNode('template')
-                            ->defaultValue(__DIR__."/../Resources/views/maintenance.twig")
+                            ->defaultValue("SimpleMaintenanceBundle:Resources:views:maintenance.twig")
                         ->end()
                     ->end()
                 ->end()

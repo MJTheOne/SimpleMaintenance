@@ -69,9 +69,16 @@ class MaintenanceListener
     public function onKernelResponse(FilterResponseEvent $event)
     {
         if ($this->handleResponse && $this->httpCode !== null) {
-            $response = $event->getResponse();
+//            $response = $event->getResponse();
+//            $response->setStatusCode($this->httpCode, $this->httpStatus);
+//            $response->setContent($this->maintenanceTemplate);
+            $response = new Response(
+                $this->maintenanceTemplate,
+                ['param' => 'variable']
+            );
             $response->setStatusCode($this->httpCode, $this->httpStatus);
-            $response->setContent($this->maintenanceTemplate);
+            $event->setResponse($response);
+            $event->stopPropagation();
         }
     }
 
