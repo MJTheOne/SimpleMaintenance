@@ -12,9 +12,24 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <style>
+            body {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+            .generalBlock {
+                display: block;
+                height: 100%;
+                width: 100%;
+                position: relative;
+            }
             #page {
+                display: table;
                 background-size: cover;
-                background: url({{ asset('img/construction-work-carpenter-tools.jpg') }}) 50% 50% no-repeat;
+                background: url({{ asset('bundles/codergeekmaintenance/img/construction-work-carpenter-tools.jpg') }}) 50% 50% no-repeat;
             }
             .tableCell {
                 height: 100%;
@@ -50,24 +65,26 @@
         </style>
     </head>
     <body>
-        <div id="page">
-            <div class="tableCell">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 col-xs-12">
-                            <h1><span class="hUnder">M</span>AINTENANCE!!</h1>
+        <div class="generalBlock">
+            <div id="page">
+                <div class="tableCell">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <h1><span class="hUnder">M</span>AINTENANCE!!</h1>
+                            </div>
                         </div>
-                    </div>
-                    <div class="addressContainer">
-                        <div class="container">
-                            <div class="row">
-                                <div class="addressBlock col-sm6 col-xs-12">
+                        <div class="addressContainer">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="addressBlock col-sm6 col-xs-12">
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <p>Testing test 123... echoing param: {{ param }}</p>
                     </div>
-                    <p>Testing test 123... echoing param: {{ param }}</p>
                 </div>
             </div>
         </div>
