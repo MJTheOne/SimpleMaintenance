@@ -23,11 +23,11 @@ class CoderGeekMaintenanceExtension extends Extension
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
+        $container->setParameter('codergeek_maintenance.driver', $config['driver']);
+        $container->setParameter('codergeek_maintenance.maintenance.template', $config['maintenance']['template']);
         $container->setParameter('codergeek_maintenance.whitelist.ips', $config['whitelist']['ips']);
         $container->setParameter('codergeek_maintenance.whitelist.route', $config['whitelist']['route']);
         $container->setParameter('codergeek_maintenance.response.http_code', $config['response']['code']);
         $container->setParameter('codergeek_maintenance.response.http_status', $config['response']['status']);
-
-        $container->setParameter('codergeek_maintenance.driver', $config['driver']);
     }
 }
