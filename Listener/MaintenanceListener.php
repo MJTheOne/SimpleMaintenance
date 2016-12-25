@@ -9,7 +9,7 @@
 namespace CoderGeek\Bundle\MaintenanceBundle\Listener;
 
 use CoderGeek\Bundle\MaintenanceBundle\Drivers\DriverFactory;
-use Symfony\Bundle\TwigBundle\TwigEngine;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
@@ -18,9 +18,9 @@ class MaintenanceListener
 {
     protected $maintenanceTemplate;
 
-    protected $driverFactory;
-
     protected $templating;
+
+    protected $driverFactory;
 
     protected $whitelistIps;
 
@@ -33,14 +33,15 @@ class MaintenanceListener
     private $handleResponse;
 
     public function __construct(
+        EngineInterface $templating,
         DriverFactory $driverFactory,
-        TwigEngine $templating,
         $maintenanceTemplate = null,
         $ips = [],
         $route = [],
         $httpCode = null,
         $httpStatus = null
     ) {
+        $this->templating = $templating;
         $this->driverFactory = $driverFactory;
         $this->maintenanceTemplate = $maintenanceTemplate;
         $this->whitelistIps = $ips;
