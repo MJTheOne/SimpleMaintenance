@@ -9,6 +9,7 @@
 namespace CoderGeek\Bundle\MaintenanceBundle\Listener;
 
 use CoderGeek\Bundle\MaintenanceBundle\Drivers\DriverFactory;
+use Symfony\Bundle\TwigBundle\TwigEngine;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
@@ -18,6 +19,8 @@ class MaintenanceListener
     protected $maintenanceTemplate;
 
     protected $driverFactory;
+
+    protected $templating;
 
     protected $whitelistIps;
 
@@ -31,6 +34,7 @@ class MaintenanceListener
 
     public function __construct(
         DriverFactory $driverFactory,
+        TwigEngine $templating,
         $maintenanceTemplate = null,
         $ips = [],
         $route = [],
@@ -71,14 +75,18 @@ class MaintenanceListener
         if ($this->handleResponse && $this->httpCode !== null) {
 //            $response = $event->getResponse();
 //            $response->setStatusCode($this->httpCode, $this->httpStatus);
-//            $response->setContent($this->maintenanceTemplate);
-            $response = new Response(
-                $this->maintenanceTemplate,
-                ['param' => 'variable']
-            );
-            $response->setStatusCode($this->httpCode, $this->httpStatus);
+//            $response->setContent($this->maintenanceTemplate); // not good method
+
+            $response = $this->templating->renderResponse($this->maintenanceTemplate, ['param' => 'variable']);
             $event->setResponse($response);
-            $event->stopPropagation();
+
+//            $response = new Response(
+//                $this->maintenanceTemplate,
+//                ['param' => 'variable']
+//            );
+//            $response->setStatusCode($this->httpCode, $this->httpStatus);
+//            $event->setResponse($response);
+//            $event->stopPropagation();
         }
     }
 
