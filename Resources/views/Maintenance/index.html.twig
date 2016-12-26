@@ -26,10 +26,18 @@
                 width: 100%;
                 position: relative;
             }
+            section {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+            }
             #page {
                 display: table;
                 background-size: cover;
-                background: url({{ asset('bundles/codergeekmaintenance/img/construction-work-carpenter-tools.jpg') }}) 50% 50% no-repeat;
+                background-image: url({{ asset('bundles/codergeekmaintenance/img/construction-work-carpenter-tools.jpg')}});
+                -ms-background-position-y: 20%;
+                background-position-y: 20%;
+                background-repeat: no-repeat;
             }
             .tableCell {
                 height: 100%;
@@ -46,47 +54,112 @@
                 font-weight: 800;
                 line-height: 1.3;
                 color: #fff;
+                font-size: 5em;
             }
             .hUnder {
-                border-bottom: 18px solid #00ffcc;
+                border-bottom: 18px solid #ab2129;
                 display: inline-block;
                 line-height: 1.2;
                 margin-bottom: 40px;
             }
             .addressContainer {
-                background: rgba(0, 255, 204, 0.6);
+                background: rgba(171, 33, 41, 0.6);
+                font-size: 18px;
+                line-height: 1.5;
+                color: #fff;
             }
-            .addressBlock {
+            .addressContainer .row {
+                display: table;
+                width: 100%;
+            }
+            .addressBlock,
+            .formBlock {
                 display: table-cell;
                 float: none;
                 width: 50%;
                 vertical-align: middle;
             }
+            .formBlock .form {
+                position: relative;
+                margin: 60px 0;
+                padding: 35px 70px 0 70px;
+            }
+            .borderTop:before,
+            .borderTop:after,
+            .borderBottom:before,
+            .borderBottom:after {
+                border: 0 none;
+                content: "";
+                height: 80px;
+                width: 80px;
+                margin: 0;
+                position: absolute;
+            }
+            .form .borderTop:before,
+            .form .borderTop:after,
+            .form .borderBottom:before,
+            .form .borderBottom:after {
+                height: 80px;
+                width: 80px;
+            }
+            .form .borderTop:before {
+                border-left: 2px solid #fff;
+                border-top: 2px solid #fff;
+                left: 0;
+                top: 0;
+            }
+            .form .borderTop:after {
+                 border-right: 2px solid #fff;
+                 border-top: 2px solid #fff;
+                 right: 0;
+                 top: 0;
+             }
+            .form .borderBottom:before {
+                border-left: 2px solid #fff;
+                border-bottom: 2px solid #fff;
+                left: 0;
+                bottom: 0;
+            }
+            .form .borderBottom:after {
+                border-right: 2px solid #fff;
+                border-bottom: 2px solid #fff;
+                right: 0;
+                bottom: 0;
+            }
         </style>
     </head>
     <body>
         <div class="generalBlock">
-            <div id="page">
+            <section id="page">
                 <div class="tableCell">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 col-xs-12">
-                                <h1><span class="hUnder">M</span>AINTENANCE!!</h1>
+                                <h1><span class="hUnder">S</span>cheduled Maintenance</h1>
                             </div>
                         </div>
-                        <div class="addressContainer">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="addressBlock col-sm6 col-xs-12">
-
+                    </div>
+                    <div class="addressContainer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="addressBlock col-sm-6 col-xs-12" style="height: 450px;">
+                                    IJzersteden 3<br>
+                                    The Netherlands, 7547 TB Enschede<br>
+                                    Tel. +31 (0) 53 428 6200<br>
+                                    Fax. +31 (0) 53 461 4665<br>
+                                    Email: info@tootal.nl<br>
+                                </div>
+                                <div class="formBlock col-sm-6 col-xs-12">
+                                    <div class="form" style="height: 340px;">
+                                        <div class="borderTop"></div>
+                                        <div class="borderBottom"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <p>Testing test 123... echoing param: {{ param }}</p>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     </body>
 </html>
