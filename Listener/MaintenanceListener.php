@@ -66,6 +66,24 @@ class MaintenanceListener
         $driver = $this->driverFactory->getDriver();
         if ($driver->canYouPass()) {
             $this->handleResponse = true;
+            // Logout all Users during Maintenance Mode
+            try {
+                if ($this->securityContext->isGranted('IS_AUTHENTICATED_FULLY')) {
+                    $token = $this->securityContext->getToken();
+                    $user = $token->getUser();
+                    if ($user !== null) {
+                        $this->securityContext->setToken(null);
+                    }
+                }
+            } catch (\Exception $e) {
+                // Do something or don't, whatever
+            }
+        }
+        // Stop all AJAX requests
+        if ($request->isXmlHttpRequest()) {
+            $event->setResponse(new Response('', 503));
+
+            return;
         }
 
         return;
